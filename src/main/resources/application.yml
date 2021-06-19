@@ -1,0 +1,21 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /rent-house
+spring:
+  profiles:
+    active:
+      - dev
+  sa-token:
+    token-name: satoken
+    timeout: 604800
+    activity-timeout: -1
+    is-concurrent: false
+    is-share: false
+    token-style: uuid
+    is-log: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:dd
+    time-zone: GMT+800
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
