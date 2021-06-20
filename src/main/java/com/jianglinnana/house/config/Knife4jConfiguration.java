@@ -14,7 +14,6 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,8 +35,6 @@ public class Knife4jConfiguration {
                 .apis(RequestHandlerSelectors.basePackage("com.jianglinnana.house.controller"))
                 .paths(PathSelectors.any())
                 .build();
-//                .securitySchemes(securitySchemes())
-//                .securityContexts(securityContexts());
     }
 
     private ApiInfo apiInfo() {
@@ -49,20 +46,16 @@ public class Knife4jConfiguration {
                 .build();
     }
 
-//    private List<SecurityScheme> securitySchemes() {
-//        ApiKey username = new ApiKey("账号", "username", In.HEADER.toValue());
-//        ApiKey password = new ApiKey("密码", "password", In.HEADER.toValue());
-//        List<SecurityScheme> apiKeys = new ArrayList<>();
-//        apiKeys.add(username);
-//        apiKeys.add(password);
-//        return apiKeys;
-//    }
-//
-//    private List<SecurityContext> securityContexts() {
-//        return Collections.singletonList(SecurityContext.builder()
-//                .securityReferences(Collections.singletonList(new SecurityReference("认证参数",
-//                        new AuthorizationScope[]{new AuthorizationScope("global", "")})))
-//                .build()
-//        );
-//    }
+    private List<SecurityScheme> securitySchemes() {
+        ApiKey apiKey = new ApiKey("认证参数", HttpHeaders.AUTHORIZATION, In.HEADER.toValue());
+        return Collections.singletonList(apiKey);
+    }
+
+    private List<SecurityContext> securityContexts() {
+        return Collections.singletonList(SecurityContext.builder()
+                .securityReferences(Collections.singletonList(new SecurityReference("认证参数",
+                        new AuthorizationScope[]{new AuthorizationScope("global", "")})))
+                .build()
+        );
+    }
 }
