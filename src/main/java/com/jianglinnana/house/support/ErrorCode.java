@@ -13,6 +13,9 @@ public enum ErrorCode {
     A0203("用户不存在"),
 
     B0001("服务端错误"),
+
+    // 权限框架错误
+    S0001("权限错误"),
     ;
 
     private final String description;

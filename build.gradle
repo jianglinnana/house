@@ -21,6 +21,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     implementation 'cn.dev33:sa-token-spring-boot-starter:1.20.0'
     implementation "com.github.xiaoymin:knife4j-spring-boot-starter:3.0.2"
