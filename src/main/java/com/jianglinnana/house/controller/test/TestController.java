@@ -7,6 +7,7 @@ import com.jianglinnana.house.support.ErrorCode;
 import com.jianglinnana.house.support.ResponsePack;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/user/doLogin")
-    public Token doLogin(String username, String password) {
+    public Token doLogin(@RequestParam("账号") String username,@RequestParam("密码") String password) {
         if ("zhang".equals(username) && "123456".equals(password)) {
             StpUtil.login(10001);
             return new Token("登录成功");
