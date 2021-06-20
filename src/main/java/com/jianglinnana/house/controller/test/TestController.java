@@ -17,19 +17,28 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "测试接口")
 public class TestController {
 
-    @GetMapping("/dologin")
+    @GetMapping("/user/doLogin")
     public Token doLogin(String username, String password) {
         if ("zhang".equals(username) && "123456".equals(password)) {
             StpUtil.login(10001);
             return new Token("登录成功");
         }else {
-            int i = 1/0;
-            return new Token("错误");
+            throw new ServiceException(ErrorCode.A0203,"用户不存在","用户不存在");
         }
     }
 
     @GetMapping("/islogin")
-    public String isLogin(String username, String password) {
-        return "当前会话是否登录:" +StpUtil.isLogin();
+    public Token isLogin(String username, String password) {
+        return new Token("当前会话是否登录:" +StpUtil.isLogin());
+    }
+
+    @GetMapping("/doLogout")
+    public boolean logout(String username,String password){
+        if ("zhang".equals(username) && "123456".equals(password)) {
+            StpUtil.logoutByLoginId(10001);
+            return true;
+        }else {
+            throw new ServiceException(ErrorCode.A0203,"用户不存在","用户不存在");
+        }
     }
 }
