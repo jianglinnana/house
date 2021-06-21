@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jianglinnana.house.dao.mapper.HouseDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jianglinnana.house.model.entity.sys.HouseDetail">
+        <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+        <result column="description" property="description" />
+        <result column="layout_desc" property="layoutDesc" />
+        <result column="traffic" property="traffic" />
+        <result column="round_service" property="roundService" />
+        <result column="rent_way" property="rentWay" />
+        <result column="address" property="address" />
+        <result column="subway_line_id" property="subwayLineId" />
+        <result column="subway_line_name" property="subwayLineName" />
+        <result column="subway_station_id" property="subwayStationId" />
+        <result column="subway_station_name" property="subwayStationName" />
+        <result column="house_id" property="houseId" />
+    </resultMap>
+
+</mapper>

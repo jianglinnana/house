@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jianglinnana.house.dao.mapper.SupportAddressMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jianglinnana.house.model.entity.sys.SupportAddress">
+        <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+        <result column="belong_to" property="belongTo" />
+        <result column="en_name" property="enName" />
+        <result column="cn_name" property="cnName" />
+        <result column="level" property="level" />
+        <result column="code" property="code" />
+        <result column="baidu_map_lng" property="baiduMapLng" />
+        <result column="baidu_map_lat" property="baiduMapLat" />
+    </resultMap>
+
+</mapper>

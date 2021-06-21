@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jianglinnana.house.dao.mapper.HouseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jianglinnana.house.model.entity.sys.House">
+        <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+        <result column="title" property="title" />
+        <result column="price" property="price" />
+        <result column="area" property="area" />
+        <result column="room" property="room" />
+        <result column="floor" property="floor" />
+        <result column="total_floor" property="totalFloor" />
+        <result column="watch_times" property="watchTimes" />
+        <result column="build_year" property="buildYear" />
+        <result column="status" property="status" />
+        <result column="city_en_name" property="cityEnName" />
+        <result column="region_en_name" property="regionEnName" />
+        <result column="cover" property="cover" />
+        <result column="direction" property="direction" />
+        <result column="distance_to_subway" property="distanceToSubway" />
+        <result column="parlour" property="parlour" />
+        <result column="district" property="district" />
+        <result column="admin_id" property="adminId" />
+        <result column="bathroom" property="bathroom" />
+        <result column="street" property="street" />
+    </resultMap>
+
+</mapper>
