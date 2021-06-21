@@ -5,13 +5,13 @@ import com.jianglinnana.house.support.ErrorCode;
 /**
  * @author jianglinnana
  */
-public class ServiceException extends HouseApiException {
+public class NotFoundException extends HouseApiException{
 
-    public ServiceException(ErrorCode errorCode, String message, String userPromptMsg) {
+    public NotFoundException(ErrorCode errorCode, String message, String userPromptMsg) {
         super(errorCode, message, userPromptMsg);
     }
 
-    public ServiceException(ErrorCode errorCode, String message) {
+    public NotFoundException(ErrorCode errorCode, String message) {
         super(errorCode, message);
     }
 }
