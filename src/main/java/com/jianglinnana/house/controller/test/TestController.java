@@ -42,4 +42,9 @@ public class TestController {
             throw new ServiceException(ErrorCode.A0203,"用户不存在","用户不存在");
         }
     }
+
+    @GetMapping("/open/limits")
+    public boolean test(){
+        return true;
+    }
 }
