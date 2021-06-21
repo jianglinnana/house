@@ -19,19 +19,30 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+
+//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     implementation 'cn.dev33:sa-token-spring-boot-starter:1.20.0'
+
     implementation "com.github.xiaoymin:knife4j-spring-boot-starter:3.0.2"
+
     compileOnly 'org.projectlombok:lombok'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.3.1'
+    implementation 'com.baomidou:mybatis-plus-generator:3.5.0'
+    implementation group: 'org.apache.velocity', name: 'velocity-engine-core', version: '2.3'
+    implementation group: 'org.jetbrains', name: 'annotations', version: '21.0.1'
+
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.projectreactor:reactor-test'
-    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {
