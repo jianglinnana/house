@@ -28,6 +28,10 @@ public class HouseApiException extends RuntimeException implements Supplier<Hous
         this.userPromptMsg = userPromptMsg;
     }
 
+    public HouseApiException(ErrorCode errorCode,String message){
+        this(errorCode,message,"");
+    }
+
     @Override
     public HouseApiException get() {
         return this;
