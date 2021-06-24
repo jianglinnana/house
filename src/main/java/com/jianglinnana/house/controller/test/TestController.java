@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "测试接口")
 public class TestController {
 
-    @GetMapping("/user/doLogin")
+    @GetMapping("/doLogin")
     public Token doLogin(@RequestParam("账号") String username,@RequestParam("密码") String password) {
         if ("zhang".equals(username) && "123456".equals(password)) {
             StpUtil.login(10001);

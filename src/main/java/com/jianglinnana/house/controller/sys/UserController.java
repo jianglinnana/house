@@ -1,11 +1,17 @@
 package com.jianglinnana.house.controller.sys;
 
 
-import com.jianglinnana.house.support.ResponsePack;
+import com.jianglinnana.house.model.entity.sys.User;
+import com.jianglinnana.house.service.sys.UserService;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.web.bind.annotation.RestController;
+
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,11 +21,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @author jianglinnana
  * @since 2021-06-21
  */
-@RestController
-@ResponsePack
+@Controller
 @Api(tags = "用户基本信息表 前端控制器")
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("index")
+    public String thymeleafDemo(){
+        return "index";
+    }
 
 }
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>房屋租赁系统</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body>
+<div>
+    <div class="layui-header layui-hide-xs layui-bg-black">
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item "><img th:src="@{/img/ziru.png}" th:width="160px"></li>
+            <li class="layui-nav-item layui-this"><a th:href="@{/route/index}">首页</a></li>
+            <li class="layui-nav-item "><a th:href="@{/route/rent}">租房</a></li>
+            <li class="layui-nav-item "><a th:href="@{/route/landlord}">房东中心</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+                <a href="">
+                    登录
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a>|</a>
+            </li>
+            <li class="layui-nav-item" lay-header-event="menuRight" layui-unselect>
+                <a href="">
+                    注册
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="layui-carousel" id="ad">
+    <div carousel-item>
+        <div><img th:src="@{/img/ad1.jpg}"></div>
+        <div><img th:src="@{/img/ad1.jpg}"></div>
+        <div><img th:src="@{/img/ad1.jpg}"></div>
+        <div><img th:src="@{/img/ad1.jpg}"></div>
+        <div><img th:src="@{/img/ad1.jpg}"></div>
+    </div>
+</div>
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>始终等比例水平排列</legend>
+</fieldset>
+
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-md4">
+            <input type="text" class="layui-input" placeholder="请输入区域、地铁站、小区名开始找房">
+            <a> </a>
+        </div>
+        <div class="layui-col-md3">
+            <button type="button" class="layui-btn layui-btn-normal ">搜索</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-border-orange layui-btn-radius">地图找房</button>
+        </div>
+        <div class="layui-col-md">
+
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/layui/layui.js}" charset="UTF-8"></script>
+<script>
+    layui.use(['element', 'carousel', 'layer', 'util'], function () {
+        var element = layui.element,
+            layer = layui.layer
+            util = layui.util,
+            carousel = layui.carousel;
+
+        carousel.render({
+            elem: '#ad',
+            width: '100%',
+            height: '400px',
+            arrow: 'always'
+        });
+
+        util.event('lay-header-event', {
+            menuRight: function () {
+                layer.open({
+                    type: 1,
+                    content: '<div style="padding: 15px;">处理操作</div>',
+                    area: ['260px', '100%'],
+                    offset: 'rt',
+                    anim: 5,
+                    shadeClose: true
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

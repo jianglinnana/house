@@ -4,6 +4,6 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.2.211:3306/vote?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://121.5.156.190:3306/rent_house?useUnicode=true&characterEncoding=utf8
     username: root
-    password: 123456
+    password: jianglin19150.Z

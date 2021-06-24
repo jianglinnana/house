@@ -19,6 +19,14 @@ spring:
     time-zone: GMT+800
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: utf-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
 mybatis-plus:
   global-config:
     db-config:
