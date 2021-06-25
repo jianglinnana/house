@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>房屋租赁系统</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
 <div>
@@ -15,13 +17,13 @@
             <li class="layui-nav-item "><a th:href="@{/route/landlord}">房东中心</a></li>
         </ul>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item layui-hide layui-show-md-inline-block">
-                <a href="">
+            <li class="layui-nav-item layui-show-md-inline-block">
+                <a th:href="@{/route/loginStatus}">
                     登录
                 </a>
             </li>
             <li class="layui-nav-item">
-                <a>|</a>
+                |
             </li>
             <li class="layui-nav-item" lay-header-event="menuRight" layui-unselect>
                 <a href="">
@@ -35,11 +37,13 @@
 
 <div class="layui-carousel" id="ad">
     <div carousel-item>
-        <div><img th:src="@{/img/ad1.jpg}"></div>
-        <div><img th:src="@{/img/ad1.jpg}"></div>
-        <div><img th:src="@{/img/ad1.jpg}"></div>
-        <div><img th:src="@{/img/ad1.jpg}"></div>
-        <div><img th:src="@{/img/ad1.jpg}"></div>
+        <div><img th:src="@{/img/ad1.jpg}" style="width: 100%;height: 100%"></div>
+        <div><img th:src="@{/img/ad1.jpg}" style="width: 100%;height: 100%"></div>
+        <div><img th:src="@{/img/ad1.jpg}" style="width: 100%;height: 100%"></div>
+        <div><img th:src="@{/img/ad1.jpg}" style="width: 100%;height: 100%"></div>
+        <div><img th:src="@{/img/ad1.jpg}" style="width: 100%;height: 100%"></div>
+        <div><img th:src="@{/img/ad1.jpg}" style="width: 100%;height: 100%"></div>
+
     </div>
 </div>
 
@@ -48,14 +52,14 @@
     <legend>始终等比例水平排列</legend>
 </fieldset>
 
-<div class="layui-container">
+<div class="layui-container" style="margin-bottom: 20px">
     <div class="layui-row">
         <div class="layui-col-md4">
             <input type="text" class="layui-input" placeholder="请输入区域、地铁站、小区名开始找房">
             <a> </a>
         </div>
         <div class="layui-col-md3">
-            <button type="button" class="layui-btn layui-btn-normal ">搜索</button>
+            <button th:href="@{/house/listhouse}" type="button" class="layui-btn layui-btn-normal" th:onclick="showHouse([[${house}]])">搜索</button>
             <button type="button" class="layui-btn layui-btn-primary layui-border-orange layui-btn-radius">地图找房</button>
         </div>
         <div class="layui-col-md">
@@ -63,14 +67,58 @@
         </div>
     </div>
 </div>
+<div class="layui-container">
+    <div style="margin-bottom: 20px">
+        <span style="margin-right: 20px"><b>找房方式</b></span>
+        <span style="margin-right: 20px"><a href="">区域</a></span>
+        <span style="margin-right: 20px"><a href="">地铁</a></span>
+        <span><a href="">距离</a></span>
+    </div>
+    <div style="margin-bottom: 20px">
+        <span style="margin-right: 20px"><b>类型</b></span>
+        <span style="margin-right: 20px"><a href="">不限</a></span>
+        <span style="margin-right: 20px"><a href="">合组</a></span>
+        <span><a href="">整租</a></span>
+    </div>
+    <div style="margin-bottom: 20px">
+        <span style="margin-right: 20px"><b>租金</b></span>
+        <span style="margin-right: 20px"><a href="">不限 </a></span>
+        <span style="margin-right: 20px"><a href="">1500元以下 </a></span>
+        <span style="margin-right: 20px"><a href="">1500-2500元 </a></span>
+        <span style="margin-right: 20px"><a href="">2500-4000元 </a></span>
+        <span style="margin-right: 20px"><a href="">4000-6000元 </a></span>
+        <span style="margin-right: 20px"><a href="">8000-10000元 </a></span>
+        <span style="margin-right: 20px"><a href="">10000元以上 </a></span>
+        <span><input type="text" id="lowPrice" style="width: 46px"></span>
+        <span>-</span>
+        <span style="margin-right: 20px"><input type="text" id="hightPrice" style="width: 46px"></span>
+        <span><button class="layui-btn layui-btn-primary layui-border-orange">确定</button></span>
+    </div>
+    <div style="margin-bottom: 20px">
+        <span style="margin-right: 20px"><b>房源特色</b></span>
+        <span style="margin-right: 20px"><a href="">集体供暖</a></span>
+        <span style="margin-right: 20px"><a href="">独立阳台</a></span>
+        <span><a href="">独立卫生间</a></span>
+    </div>
 
+</div>
+
+<div id="houses"
+     style="display:flex;flex-flow: row wrap;justify-content: space-around;align-items: center;padding-top: 0">
+</div>
+<div style=" display: flex; border:1px solid black; position: fixed; width: 100%; height: 60px; bottom: 0;z-index: 99;background-color: rgb(220,206,206);color: #fff;">
+    <div style="background-color:coral; width: 25%;"></div>
+    <div style="background-color:lightblue; width: 25%;"></div>
+    <div style="background-color:lightgreen; width: 25%;"></div>
+    <div style="background-color:coral; width: 25%;"></div>
+</div>
 
 <script th:src="@{/layui/layui.js}" charset="UTF-8"></script>
 <script>
     layui.use(['element', 'carousel', 'layer', 'util'], function () {
         var element = layui.element,
             layer = layui.layer
-            util = layui.util,
+        util = layui.util,
             carousel = layui.carousel;
 
         carousel.render({
@@ -93,6 +141,39 @@
             }
         });
     });
+</script>
+<script>
+    function showHouse(result) {
+        console.log('dddd')
+        var target = $("#houses");
+        var index = 0;
+        for (var row of result) {
+            var str = $(
+                `<div style="width: 370px; height: 431.25px; border: 2px solid #eaf1f1;border-radius: 20px; margin-bottom: 30px">
+                    <div>
+                        <img src="/rent-house/img/testhouse.jpg" style="width: 100%;height: 100%;border-radius: 20px">
+                    </div>
+                    <div>
+                        <a href="/rent-house/house/${row["id"]}">${row["title"]}</a>
+                        <span style="margin-left: 30px">${row["price"]}元/月</span>
+                    </div>
+                    <div>
+                        <div>${row["area"]}㎡ | ${row["room"]}人间 | ${row["floor"]}/${row["totalFloor"]}层</div>
+                        <div>小区距东直门站步行约1179米</div>
+                    </div>
+                    <div>
+                        <span style="margin-right: 10px">双卫生间</span>
+                        <span style="margin-right: 10px">首次出租</span>
+                        <span style="margin-right: 10px">自如豪宅</span>
+                    </div>
+                    <div><a href="">空气质量已检测</a></div>
+                </div>`
+            );
+            console.log(str);
+            str.appendTo(target);
+            index++;
+        }
+    }
 </script>
 </body>
 </html>
