@@ -5,43 +5,48 @@
     <title>房屋租赁系统</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/myCss.css}"/>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
-<div>
-    <div class="layui-header layui-hide-xs layui-bg-black">
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item "><img th:src="@{/img/ziru.png}" th:width="160px"></li>
-            <li class="layui-nav-item"><a th:href="@{/route/index}">首页</a></li>
-            <li class="layui-nav-item layui-this"><a th:href="@{/route/rent}">租房</a></li>
-            <li class="layui-nav-item "><a th:href="@{/route/landlord}">房东中心</a></li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item layui-hide layui-show-md-inline-block">
-                <a th:href="@{/route/loginStatus}">
-                    登录
-                </a>
-            </li>
-            <li class="layui-nav-item">
-                <a>|</a>
-            </li>
-            <li class="layui-nav-item" lay-header-event="menuRight" layui-unselect>
-                <a href="">
-                    注册
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="layui-container">
-        <div style="color: #00F7DE">
-            haha
-        </div>
-        <span style="color: #0000FF">
-            hehe
-        </span>
+<div class="housesBox"></div>
 
-    </div>
-</div>
+<script>
+    function showHouse(result) {
+        console.log('dddd')
+        var target = $("#houses");
+        var index = 0;
+        for (var row of result) {
+            var str = $(
+                `<div style="width: 370px; height: 431.25px; border: 2px solid #eaf1f1;border-radius: 20px; margin-bottom: 30px">
+                    <div>
+                        <img src="/rent-house/img/testhouse.jpg" style="width: 100%;height: 100%;border-radius: 20px">
+                    </div>
+                    <div>
+                        <span class="layui-badge layui-bg-green">有</span>
+                        <a class="houseTitle" href="/rent-house/house/${row["id"]}">${row["title"]}</a>
+                    </div>
+                    <div class="housePrice">${row["price"]}元/月</div>
+                    <div>
+                        <div style="font-size: 12px">${row["area"]}㎡ | ${row["room"]}人间 | ${row["floor"]}/${row["totalFloor"]}层</div>
+                    </div>
+                    <div>
+                        <i class="layui-icon layui-icon-location"></i>
+                        <span>小区距东直门站步行约1179米</span>
+                    </div>
 
+                    <div>
+                        <span class="tag">双卫生间</span>
+                        <span class="tag">首次出租</span>
+                        <span class="tag">自如豪宅</span>
+                    </div>
+                    <div><a href="">空气质量已检测</a></div>
+                </div>`
+            );
+            str.appendTo(target);
+            index++;
+        }
+    }
+</script>
 </body>
 </html>
