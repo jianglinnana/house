@@ -41,14 +41,14 @@ public class HouseController {
     public String housePage(Model model,@PathVariable("houseId") Integer houseId){
         House house = houseService.getById(houseId);
         model.addAttribute("houseId",house);
-        return "house";
+        return "houseDatil";
     }
 
     @RequestMapping("/select")
     public String selectHouseByName(Model model,@RequestParam(value = "info") String info){
         List<House> list = houseService.list(new QueryWrapper<House>().lambda().like(House::getTitle, info));
         model.addAttribute("houseByName",list);
-        return "index";
+        return "house";
     }
 
 }

@@ -44,13 +44,28 @@ public class RouteController {
     }
 
     @RequestMapping("house")
-    public String houseDetailPage(Model model){
+    public String houseDetailPage(){
         return "house";
     }
 
     @RequestMapping("phone")
-    public String phonePage(Model model){
+    public String phonePage(){
         return "phone";
+    }
+
+    @RequestMapping("user")
+    public String userPage(){
+        return "user";
+    }
+
+    @RequestMapping("price")
+    public String pricePage(){
+        return "price";
+    }
+
+    @RequestMapping("houseDatil")
+    public String houseDtailPage(){
+        return "houseDatil";
     }
 
 
