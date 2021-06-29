@@ -12,12 +12,11 @@
 
 .selectInput {
     width: 240px;
-    margin-left: 20px;
     border: 0;
 }
 
 .selectMain {
-    width: 85%;
+    width: 91%;
     height: 81%;
     border-radius: 11px;
     border: 2px solid #378888;
@@ -26,7 +25,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 30px;
     flex-flow: row nowrap;
 }
 
@@ -109,24 +107,28 @@
     flex-direction: column;
     flex-wrap: nowrap;
 }
-.iconPosition{
+
+.iconPosition {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 30px;
 }
-.userTop{
+
+.userTop {
     position: fixed;
     top: 30px;
     width: 100%;
     background-color: #ffffff;
 }
-.userInfo{
+
+.userInfo {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.userTable{
+
+.userTable {
     background-color: #eceff5;
     height: 250px;
     width: 80%;
@@ -134,15 +136,125 @@
     border-radius: 13px;
     box-shadow: 0px 0px 8px 0px #888888;
 }
-.userBack{
+
+.userBack {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
 }
-.userBackTable{
+
+.userBackTable {
     width: 100%;
     height: 300px;
     background-color: #ffffff;
     margin-top: 100px;
+}
+
+.houseDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Microsoft YaHei';
+    background-color: #eceff5;
+    /* border-radius: 13px; */
+    box-shadow: 0px 0px 8px 0px #888888;
+}
+
+.houseDetailInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.houseDetailMuch {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.housekey {
+    color: darkgray;
+    margin-right: 1px;
+}
+
+.houseDownInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    align-items: flex-start;
+    background-color: #e7ea9a;
+}
+
+.houseKeyType {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f82a2a;
+}
+
+.houseDetailTitle {
+    font-weight: 800;
+    font-size: 17px;
+    margin: 10px;
+}
+
+.houseDetailInfoParent {
+    margin: 10px;
+    width: 90%;
+    display: flex;
+    border: 0.5px solid #8599a5;
+    border-left: 0;
+    border-right: 0;
+}
+
+.hosueDetailTager {
+    color: darkgray;
+    font-size: 10px;
+}
+
+.houseMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.houseMenuInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 34%;
+    margin: 10px;
+}
+
+.houseMenuPoint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.houseDetailMuchParent{
+    background-color: #eceff5;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px #888888;
+    margin: 20px;
+}
+.houseDownInfoParent{
+    margin: 20px;
+    background-color: #e7ea9a;
+    border-radius: 7px;
+    box-shadow: 0px 1px 8px 0px #c1c1c1;
+}
+.houseBack{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    z-index: 10;
+    color: #000000;
 }
