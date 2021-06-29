@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/iconfont/iconfont.css}"/>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script th:src="@{/layui/layui.js}" charset="UTF-8"></script>
+    <script type="text/javascript"
+            src="https://webapi.amap.com/maps?v=1.4.15&key=85d4aec169edb2c00ced2214582ec052"></script>
 </head>
 <body>
 
@@ -102,20 +104,24 @@
         <div class="houseDownInfo">
             <div>
                 <span class="housekey">户型介绍:</span>
-                <span th:text="${houseDetail.layoutDesc}"></span>
+                <span style="color: #999;" th:text="${houseDetail.layoutDesc}"></span>
             </div>
             <div>
                 <span class="housekey">详细描述:</span>
-                <span th:text="${houseDetail.description}"></span>
+                <span style="color: #999;" th:text="${houseDetail.description}"></span>
             </div>
             <div>
                 <span class="housekey">周边配套:</span>
-                <span th:text="${houseDetail.traffic}"></span>
+                <span style="color: #999;" th:text="${houseDetail.traffic}"></span>
             </div>
         </div>
 
     </div>
 
+    <div style="width: 100%;">
+        <div style="font-size: 25px;margin-left: 20px;">周边以及交通</div>
+        <div id="container"></div>
+    </div>
     <div class="houseMenu">
         <div class="houseMenuInfo">
             <div class="houseMenuPoint">
@@ -124,7 +130,7 @@
             </div>
             <div class="houseMenuPoint">
                 <i class="layui-icon layui-icon-service"></i>
-                <div>电话</div>
+                <div><a th:href="'tel:'+${phone}">电话</a></div>
             </div>
         </div>
         <div>
@@ -176,7 +182,7 @@
         carousel.render({
             elem: '#ad',
             width: '100%',
-            height: '400px',
+            height: '300px',
             arrow: 'always'
         });
 
@@ -195,8 +201,21 @@
     });
 </script>
 <script>
-    function backPage(){
-        window.location.href="javascript:history.go(-1)";
+    function backPage() {
+        window.history.back()
+    }
+
+    window.onload = function (){
+        var map = new AMap.Map('container',{
+            zoom:16,
+            center:[116.39,39.9],
+            viewMode:'3D'
+        });
+        var marker = new AMap.Marker({
+           position: new AMap.LngLat(116.39,39.9),
+           title: '北京'
+        });
+        map.add(marker);
     }
 </script>
 </html>
