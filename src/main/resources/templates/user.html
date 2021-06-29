@@ -13,27 +13,35 @@
 </head>
 <body>
 
-<div class="userTop">
-    <div class="userInfo">
-        <i class="layui-icon layui-icon-friends" style="font-size: 17px"></i>
-        <p style="font-size: 17px">我的</p>
-        <i class="layui-icon layui-icon-set" style="font-size: 17px"></i>
+<div class="userTopParent">
+    <div class="userTop">
+        <div class="userInfo">
+            <i class="layui-icon layui-icon-friends" style="font-size: 17px"></i>
+            <p style="font-size: 17px">我的</p>
+            <i class="layui-icon layui-icon-set" style="font-size: 17px"></i>
+        </div>
     </div>
 </div>
+
 <div class="userBackTable">
     <div class="userBack">
         <div class="userTableChild">
             <p style="margin-left: 10px;font-size: 13px;">个人头像</p>
-            <div>
-                <img style="width: 50px;height: 50px;border-radius: 50px;" th:src="@{/img/head.jpg}">
+            <div style="display: flex;align-items: center;">
+                <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 10px;" th:src="@{/img/head.jpg}">
                 <i class="layui-icon layui-icon-right"></i>
             </div>
-
         </div>
-        <div class="userTable"></div>
-        <div class="userTable"></div>
-        <div class="userTable"></div>
-        <div class="userTable"></div>
+        <div class="userTableChild" style="height: 50px; margin-top: 30px;">
+            <p style="margin-left: 10px;font-size: 13px;margin-right: 10px;">昵称</p>
+            <div style="display: flex;align-items: center;">
+                <span style="font-size: 13px;">Jianglinnana</span>
+                <i class="layui-icon layui-icon-right"></i>
+            </div>
+        </div>
+<!--        <div class="userTable"></div>-->
+<!--        <div class="userTable"></div>-->
+<!--        <div class="userTable"></div>-->
 
     </div>
 </div>
